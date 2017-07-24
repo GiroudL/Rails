@@ -1,4 +1,8 @@
 <%= form_for(@article) do |f| %>
+  <h3>Post a Comment</h3>
+<p>(Comment form will go here)</p>
+
+
   <ul>
   <% @article.errors.full_messages.each do |error| %>
     <li><%= error %></li>
@@ -14,5 +18,24 @@
   </p>
   <p>
     <%= f.submit %>
+  </p>
+
+  <h3>Post a Comment</h3>
+<p>(Comment form will go here)</p>
+
+<% end %>
+<h3>Post a Comment</h3>
+
+<%= form_for [ @article, @comment ] do |f| %>
+  <p>
+<%= f.label :author_name, "Your Name"  %>
+    <%= f.text_field :author_name %>
+  </p>
+  <p>
+    <%= f.label :body %><br/>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
   </p>
 <% end %>
